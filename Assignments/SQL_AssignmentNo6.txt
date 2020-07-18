@@ -1,0 +1,21 @@
+show databases;
+use dac_demo;
+
+select * from ORDERS where Odate ='1990-10-03' OR Odate = '1990-10-04';
+
+SELECT * FROM CUSTOMERS WHERE Snum IN 
+(SELECT Snum FROM SALESPEOPLE 
+WHERE Sname = 'Peel' OR Sname = 'Motika');
+
+select * from CUSTOMERS where
+Cname like 'A%'
+OR Cname like 'B%'
+OR Cname like 'C%'
+OR Cname like 'D%'
+OR Cname like 'E%'
+OR Cname like 'F%'
+OR Cname like 'G%';
+
+SELECT * FROM CUSTOMERS WHERE Cname LIKE 'C%';
+
+select * from ORDERS where AMT is NOT NULL;
