@@ -1,0 +1,16 @@
+show databases;
+use exercise;
+
+select * from SUPPLIER order by city desc;
+
+select * from PARTS order by city,pname;
+
+select * from SUPPLIER where status between 10 and 20;
+
+select * from SUPPLIER where status not between 10 and 15;
+
+select * from PARTS where pname like "S%";
+
+select * from SUPPLIER where city like "L%";
+
+select * from PROJECTS where jname like "_n%";

@@ -1,0 +1,24 @@
+show databases;
+use exercise;
+
+select Sname from SUPPLIER
+where ascii(upper(substr(Sname,1,1)))=ascii(Sname);
+
+select upper(Sname) from SUPPLIER;
+
+select lower(Sname) from SUPPLIER;
+
+select lpad(Sname,25,'') from SUPPLIER;
+
+select replace(Sname,'la','ro') from SUPPLIER;
+
+select replace (replace (Sname,'l','r'),'a','o')from SUPPLIER;
+
+select Sname,length(Sname) as length from SUPPLIER;
+
+select Sname from SUPPLIER
+where soundex (Sname)=soundex('BLOKE');
+
+select Sname,Status from SUPPLIER;
+
+select DAYNAME ("2020-07-20");
