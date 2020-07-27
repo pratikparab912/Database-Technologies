@@ -1,0 +1,41 @@
+show databases;
+use exercise;
+
+select Sname,Status
+from SUPPLIER
+where Status = 
+(select Status from SUPPLIER  where Sname = 'CLARK');
+
+
+select * from SEMP;
+select * from SEMP 
+where deptno=(select deptno from SEMP where Empname='Miller');
+
+select * from PARTS 
+where Weight > 14 and Color != 'red';
+
+select * from PROJECTS
+where City = 
+(select City from PROJECTS where Jname  = 'Tape');
+
+select * from PARTS
+where weight < 
+( select Weight from PARTS where Color = 'green');
+
+select Sname from SUPPLIER ,SUPPLIER_PARTS_PROJECTS
+where SUPPLIER.Sno=SUPPLIER_PARTS_PROJECTS.Sno
+and QTY = (select max(QTY) from SUPPLIER_PARTS_PROJECTS);
+
+select Empname from SEMP
+where Basic=
+(select min(Basic) from SEMP);
+
+select SUPPLIER.Sname,sum(SUPPLIER_PARTS_PROJECTS.QTY)
+from SUPPLIER,SUPPLIER_PARTS_PROJECTS
+where SUPPLIER_PARTS_PROJECTS.Sno=SUPPLIER.Sno
+group by Sname;
+
+select SDEPT.Deptname,count(SEMP.Deptno)
+from SEMP,SDEPT
+where SEMP.Deptno=SDEPT.Deptno
+group by SEMP.Deptno;
